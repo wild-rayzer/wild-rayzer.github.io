@@ -26,19 +26,19 @@
   <script src="./static/js/carousel_utils.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="script.js" type="text/javascript"></script>
-  <div style="display:none">
+  <!-- <div style="display:none">
     <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=kil1kuTLCIa-mi8KVDNEDX03zRkjha44PXIO66E5NBk&cl=ffffff&w=a"></script>
     <a href="https://clustrmaps.com/site/1c6f5"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=kil1kuTLCIa-mi8KVDNEDX03zRkjha44PXIO66E5NBk&cl=ffffff" /></a>
-  </div>
+  </div> -->
 </head>
 <body>
 
 <section class="hero">
-  <div class="hero-body">
+  <div class="hero-body" style="padding-bottom: 1rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">WildRayZer: Self-supervised Large View Synthesis in Dynamic Environments</h1>
+          <h1 class="title is-1 publication-title">WildRayZer: <span style="color: #3498db;">Self-supervised</span> Large View Synthesis in <span style="color: #e74c3c;">Dynamic</span> Environments</h1>
           <!-- <div class="is-size-5 has-text-centered" style="color: #e74c3c; font-weight: bold; margin-bottom: 20px;">
             3D-LLM/VLA Workshop @ CVPR 2025
           </div> -->
@@ -81,7 +81,7 @@
                   <span class="icon">
                     <i class="fas fa-database"></i>
                   </span>
-                  <span>Map and Locate Data (Coming Soon)</span>
+                  <span>Dynamic-RE10K</span>
                 </a>
               </span>
               <span class="link-block">
@@ -90,11 +90,11 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>GitHub (Coming Soon)</span>
+                  <span>GitHub</span>
                 </a>
                 <span class="link-block">
                   <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                      <span>🤗 Live Demo (Coming Soon)</span> <!-- Label text for the button -->
+                      <span>🤗 Live Demo</span> <!-- Label text for the button -->
                   </a>
                 </span>
               </span>
@@ -106,34 +106,16 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top: 1rem;">
   <div class="container is-max-desktop">
-      <figure>
-        <img src="./static/images/teaser_v5.jpg" alt="Map and Locate Task Overview">
-        <figcaption>
-          <div class="content">
-            <p>Given an unposed input video, we show ground truth for: open-vocabulary semantic segmentation (per-pixel labels for the prompt "a black office chair"), 3D reconstruction (ground-truth point cloud), and the proposed <em>Map and Locate</em> task (open-vocabulary segmentation and point cloud). The Map and Locate task: (1) encompasses both 2D and 3D tasks, (2) bridges reconstruction and recognition, and (3) introduces practical questions in robotics and embodied AI.</p>
-          </div>
-        </figcaption>
-      </figure>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We introduce a new task, <strong>Map and Locate</strong>, which unifies the traditionally distinct objectives of open-vocabulary segmentation—detecting and segmenting object instances based on natural language queries—and 3D reconstruction, the process of estimating a scene's 3D structure from visual inputs. Specifically, Map and Locate involves generating a point cloud from an unposed video and segmenting object instances based on open-vocabulary queries. This task serves as a critical step toward real-world embodied AI applications and introduces a practical task that bridges reconstruction, recognition and reorganization.
-          </p>
-          <p>
-            To tackle this task, we introduce a simple yet effective baseline, which we denote as <strong>SAB3R</strong>. Our approach builds upon MASt3R, a recent breakthrough in 3D computer vision, and incorporates a lightweight distillation strategy. This method transfers dense, per-pixel semantic features from 2D vision backbones (<em>e.g.</em>, CLIP and DINOv2) to enhance MASt3R's capabilities. Without introducing any auxiliary frozen networks, our model generates per-pixel semantic features and constructs cohesive point maps in a single forward pass.
-          </p>
-          <p>
-            Compared to separately deploying MASt3R and CLIP, our unified model, <strong>SAB3R</strong>, achieves superior performance on the Map and Locate benchmark. Furthermore, we evaluate SAB3R on both 2D semantic segmentation and 3D tasks to comprehensively validate its effectiveness.
-          </p>
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Overview</h2>
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <video id="teaser-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 8px;">
+            <source src="./static/recordings/supplementary_videos.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
@@ -142,57 +124,150 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">TL;DR</h2>
       <figure>
-        <img src="./static/images/qualitative_2.jpg" alt="SAB3R Qualitative Results">
+        <img src="./static/images/teaser.jpg" alt="Map and Locate Task Overview" style="border-radius: 8px;">
         <figcaption>
           <div class="content">
-            <p>Our method, <strong>SAB3R</strong>, a semantic-augmented backbone for 3D reconstruction, enables zero-shot open-vocabulary segmentation and 3D reconstruction from unposed images in a single forward pass. By jointly performing reconstruction and open-vocabulary semantic segmentation, SAB3R introduces a novel capability that unifies these tasks within a single framework.</p>
+            <p><strong>WildRayZer: Self-supervised Large View Synthesis in <span style="color: red;">Dynamic</span> Environments.</strong> Our self-supervised <strong>WildRayZer</strong> learns to render static novel views from <em>dynamic</em> images without any 3D or GT mask supervision. It extends the state-of-the-art self-supervised large view synthesis model RayZer to dynamic environments by adding a learned motion mask estimator and a masked 3D scene encoder.</p>
           </div>
         </figcaption>
       </figure>
+    </div>
   </div>
 </section>
 
-<div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">SAB3R: Network Architecture</h2>
-  <div class="content has-text-justified">
-    <p>
-      <strong>SAB3R</strong> distills dense features from CLIP and DINO into the MASt3R framework, enriching it with 2D semantic understanding. Each encoder-decoder pair operates on multi-view images, sharing weights and exchanging information to ensure consistent feature extraction across views. The model simultaneously generates depth, dense DINOv2, and dense CLIP features, which are then used for multi-view 3D reconstruction and semantic segmentation. This architecture enables SAB3R to seamlessly integrate 2D and 3D representations, achieving both geometric and semantic comprehension in a unified model.
-    </p>
-    <figure>
-      <img src="./static/images/network_architecture.png" alt="SAB3R Network Architecture">
-      <figcaption>
-        <div class="content">
-          <p><strong>Methods Architecture.</strong> We distill dense features from CLIP and DINO into the MASt3R framework, enriching it with 2D semantic understanding. Each encoder-decoder pair operates on multi-view images, sharing weights and exchanging information to ensure consistent feature extraction across views. The model simultaneously generates depth, dense DINOv2, and dense CLIP features, which are then used for multi-view 3D reconstruction and semantic segmentation.</p>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+          We present <strong>WildRayZer</strong>, a self-supervised framework for novel view synthesis (NVS) in dynamic environments, where both the camera and objects move. Dynamic content breaks the multi-view consistency that static NVS models rely on, causing ghosting, hallucinated geometry, and unstable pose estimation. WildRayZer addresses this by performing an analysis-by-synthesis test: a camera-only static renderer explains rigid structure, and its residuals reveal transient regions. From these residuals, we construct pseudo motion masks, distill a motion estimator, and use it to mask input tokens and gate loss gradients so supervision focuses on cross-view background completion. To enable large-scale training and evaluation, we curate Dynamic RealEstate10K (D-RE10K), a real-world dataset of 15K casually captured dynamic sequences, and D-RE10K-iPhone, a paired transient and clean benchmark for sparse-view transient-aware NVS. Experiments show that WildRayZer consistently outperforms optimization-based and feed-forward baselines in both transient-region removal and full-frame NVS quality with a single feed-forward pass.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Dynamic RE10K Data Curation</h2>
+      <div class="content has-text-justified">
+        <p>
+          We target novel view synthesis from dynamic, in-the-wild videos where both the camera and scene undergo motion. Rather than relying on controlled captures, we mine diverse handheld footage from public sources. A key observation is that user-generated real-estate walkthroughs naturally provide abundant multi-view coverage of cluttered indoor scenes. Unlike prior static NVS datasets which aggressively filter out motion, we intentionally <em>retain</em> clips containing humans, pets, and object interactions to expose transient dynamics.
+        </p>
+        <p>
+          <strong>Data Curation Pipeline:</strong> Our pipeline proceeds in three stages: <em>(1) Source identification</em> — querying YouTube channels for real-estate walkthroughs and indoor pet-interaction videos; <em>(2) Image-level filtering</em> — assessing visual quality and removing videos with intrusive overlays; <em>(3) Sequence extraction</em> — detecting scene cuts and subdividing clips based on camera translation to ensure sufficient parallax.
+        </p>
+        <p>
+          <strong>Benchmark Construction:</strong> We build two evaluation splits: <em>D-RE10K Motion Mask</em> providing motion annotations for 99 Internet video sequences, and <em>D-RE10K-iPhone</em>, a 50-sequence real-world paired transient/clean dataset captured with tripod-mounted iPhone for sparse-view transient-aware NVS evaluation.
+        </p>
+      </div>
+      
+      <!-- Examples Subsection -->
+      <h4 class="title is-5" style="margin-top: 1.5rem;">Examples</h4>
+      <p class="has-text-centered is-size-7" style="margin-bottom: 1rem; color: #666;">Sample sequences showcasing diverse indoor scenes with transient objects.</p>
+      <div style="max-width: 70%; margin: 0 auto; position: relative; overflow: hidden;">
+        <div id="carousel-track" style="display: flex; transition: transform 0.4s ease-in-out;">
+          <div style="flex: 0 0 100%; padding: 0 5px; box-sizing: border-box;">
+            <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 6px;">
+              <source src="./static/recordings/example1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 0 0 100%; padding: 0 5px; box-sizing: border-box;">
+            <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 6px;">
+              <source src="./static/recordings/example2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 0 0 100%; padding: 0 5px; box-sizing: border-box;">
+            <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 6px;">
+              <source src="./static/recordings/example3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 0 0 100%; padding: 0 5px; box-sizing: border-box;">
+            <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 6px;">
+              <source src="./static/recordings/example4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="flex: 0 0 100%; padding: 0 5px; box-sizing: border-box;">
+            <video controls autoplay muted loop playsinline style="width: 100%; border-radius: 6px;">
+              <source src="./static/recordings/example5.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-      </figcaption>
-    </figure>
+        <!-- Navigation Arrows -->
+        <button id="carousel-prev" style="position: absolute; left: 5px; top: 45%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 14px; z-index: 10;">&#10094;</button>
+        <button id="carousel-next" style="position: absolute; right: 5px; top: 45%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 14px; z-index: 10;">&#10095;</button>
+      </div>
+      <!-- Dots Indicator -->
+      <div id="carousel-dots" style="display: flex; justify-content: center; gap: 6px; margin-top: 0.75rem;">
+        <span class="carousel-dot" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background: #3498db; cursor: pointer;"></span>
+        <span class="carousel-dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer;"></span>
+        <span class="carousel-dot" data-index="2" style="width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer;"></span>
+        <span class="carousel-dot" data-index="3" style="width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer;"></span>
+        <span class="carousel-dot" data-index="4" style="width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer;"></span>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let currentIndex = 0;
+  const totalSlides = 5;
+  const track = document.getElementById('carousel-track');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  
+  function updateCarousel() {
+    if (track) {
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+    }
+    dots.forEach(function(dot, i) {
+      dot.style.background = i === currentIndex ? '#3498db' : '#ccc';
+    });
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    });
+  }
+  
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      currentIndex = parseInt(dot.dataset.index);
+      updateCarousel();
+    });
+  });
+});
+</script>
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Additional Map and Locate Details</h2>
-    <div class="content has-text-justified">
-      <p>
-        The <em>Map and Locate</em> framework is evaluated on the ScanNet dataset, a large-scale indoor scene dataset providing RGB-D sequences, camera poses, and semantic and instance annotations. For our experiments, we selected 10 scenes from the validation split, featuring diverse object layouts and camera trajectories. Across these scenes, there are 436 objects with semantic and instance-level ground truth annotations.
-      </p>
-      <p>
-        For evaluation, we constructed 60 image groups in total, with each scene contributing 2 sets of groups containing 2, 3, or 4 images. Image selection followed these criteria:
-        <ul>
-          <li><strong>Object visibility:</strong> Objects within each group are visible across multiple images for reliable localization and mapping.</li>
-          <li><strong>Viewpoint diversity:</strong> Images are selected from varying camera viewpoints to test robustness to occlusion and perspective changes.</li>
-        </ul>
-        Each group is paired with its corresponding RGB images, depth maps, camera poses (intrinsics and extrinsics), and semantic and instance labels, providing a comprehensive benchmark for evaluating mapping accuracy and object localization performance.
-      </p>
-      <p>
-        The dataset statistics visualization below illustrates camera translation differences and rotation differences at different group levels. Translation differences are computed as the Euclidean distance between translation vectors, while rotation differences are calculated as the geodesic distance on the rotation space \( SO(3) \). As the number of views increases, these differences grow, showcasing the variability in camera poses. Despite this variability, our framework demonstrates consistent performance across all group levels, highlighting its robustness.
-      </p>
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Method</h2>
       <figure>
-        <img src="./static/images/camera_distribution.jpg" alt="Camera Distributions">
+        <img src="./static/images/network_architecture.jpg" alt="WildRayZer Framework" style="border-radius: 8px;">
         <figcaption>
-          <div class="content">
-            <p><strong>Camera Distributions.</strong> Camera translation differences and rotation differences at different group levels.</p>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              <strong>WildRayZer self-supervised learning framework.</strong>
+              <strong>(a) Training.</strong> A camera-only static renderer explains the rigid background; residuals between renderings and targets highlight dynamic regions, which are sharpened with pseudo-motion masks constructor. Motion estimator is distilled from these pseudo-masks and used to gate dynamic image tokens before scene encoding; the same pseudo-masks also gate dynamic pixels in the rendering loss.
+              <strong>(b) Inference.</strong> Given a set of dynamic input images, the model predicts camera parameters and motion masks in a single feed-forward pass. The motion estimator operates only on input views, masks out dynamic tokens, and the renderer synthesizes transient-free novel views from the inferred static scene.
+            </p>
           </div>
         </figcaption>
       </figure>
@@ -202,194 +277,59 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Sparse View Performance Comparison</h2>
-    <div class="content has-text-justified">
-      <p>
-        This section presents the performance comparison of different methods across sparse view configurations (2, 3, and 4 views). Metrics include mean Intersection over Union (mIoU), Accuracy, Mean Completeness (mComp.), and Median Completeness (mdComp.). Params and FLOPs refer to the number of parameters and computational cost per frame. Our method, <strong>SAB3R</strong>, consistently outperforms the baseline across all configurations, demonstrating its robustness and efficiency in integrating semantic and geometric understanding.
-      </p>
-      <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th><strong>Params</strong></th>
-              <th><strong>FLOPs</strong></th>
-              <th colspan="4">Sparse View = 2</th>
-              <th colspan="4">Sparse View = 3</th>
-              <th colspan="4">Sparse View = 4</th>
-            </tr>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th><strong>mIoU</strong></th>
-              <th><strong>Acc.</strong></th>
-              <th><strong>mComp.</strong></th>
-              <th><strong>mdComp.</strong></th>
-              <th><strong>mIoU</strong></th>
-              <th><strong>Acc.</strong></th>
-              <th><strong>mComp.</strong></th>
-              <th><strong>mdComp.</strong></th>
-              <th><strong>mIoU</strong></th>
-              <th><strong>Acc.</strong></th>
-              <th><strong>mComp.</strong></th>
-              <th><strong>mdComp.</strong></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Baseline</td>
-              <td>838M</td>
-              <td>248G</td>
-              <td>4.57</td>
-              <td>18.10</td>
-              <td>0.64</td>
-              <td>0.67</td>
-              <td>6.03</td>
-              <td>21.26</td>
-              <td>0.68</td>
-              <td>0.71</td>
-              <td>5.12</td>
-              <td>19.31</td>
-              <td>0.68</td>
-              <td>0.70</td>
-            </tr>
-            <tr>
-              <td>LSM</td>
-              <td>1B</td>
-              <td>592G</td>
-              <td><strong>21.40</strong></td>
-              <td>42.34</td>
-              <td>0.72</td>
-              <td><strong>0.80</strong></td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>SAB3R (C)</td>
-              <td>729M</td>
-              <td>218G</td>
-              <td>17.26</td>
-              <td>41.11</td>
-              <td><strong>0.73</strong></td>
-              <td>0.75</td>
-              <td>22.83</td>
-              <td><strong>53.19</strong></td>
-              <td><strong>0.78</strong></td>
-              <td><strong>0.81</strong></td>
-              <td>19.92</td>
-              <td><strong>48.07</strong></td>
-              <td><strong>0.77</strong></td>
-              <td><strong>0.80</strong></td>
-            </tr>
-            <tr>
-              <td>SAB3R (CD)</td>
-              <td>729M</td>
-              <td>218G</td>
-              <td>17.50</td>
-              <td><strong>42.72</strong></td>
-              <td><strong>0.73</strong></td>
-              <td>0.76</td>
-              <td><strong>22.94</strong></td>
-              <td>52.86</td>
-              <td>0.77</td>
-              <td>0.80</td>
-              <td><strong>20.31</strong></td>
-              <td>46.26</td>
-              <td>0.75</td>
-              <td>0.78</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      
+      <!-- Visual Comparison -->
+      <h4 class="title is-5" style="margin-top: 1rem;">Visual Comparison</h4>
+      <figure>
+        <img src="./static/images/comparison.jpg" alt="Visual Comparison" style="border-radius: 8px;">
         <figcaption>
-          <div class="content">
-            <p><strong>Performance comparison across different sparse view configurations (2, 3, and 4 views) using mIoU, Accuracy, Mean Completeness, and Median Completeness.</strong> Params and FLOPs refer to the number of parameters and computational cost per frame. <strong>SAB3R</strong> methods demonstrate superior performance across most metrics while maintaining computational efficiency.</p>
+          <div class="content has-text-centered" style="margin-top: 0.5rem;">
+            <p><strong>Qualitative comparison</strong> of novel view synthesis results on Dynamic-RE10K and D-RE10K-iPhone.</p>
           </div>
         </figcaption>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">3D Point Cloud Visualization</h2>
-    <div class="content has-text-justified">
-      <p>
-        Explore the 3D point cloud reconstruction using the interactive viewer below. The visualization demonstrates the robustness of the SAB3R framework, enabling detailed geometric and semantic understanding of 3D structures. Click and drag to navigate the scene!
-      </p>
-    </div>
-
-    <!-- Visualization Type Section -->
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Select Visualization Type</h3>
-      <p class="has-text-justified">
-        Please choose the type of scene visualization. 
-        <strong>RGB</strong> shows the raw reconstructed point cloud, 
-        <strong>CLIP</strong> is colored using PCA, 
-        and <strong>DINO</strong> is colored based on predicted semantic features.
-      </p>
-      <div id="type-container" class="buttons is-centered">
-        <button class="button is-link is-selected" id="rgb-btn" onclick="switchType('rgb')">RGB</button>
-        <button class="button is-link" id="clip-btn" onclick="switchType('clip')">CLIP</button>
-        <button class="button is-link" id="dino-btn" onclick="switchType('dino')">DINO</button>
-      </div>
-    </div>
-
-    <!-- Scene Selection Section -->
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Select a Scene</h3>
-      <p class="has-text-justified">
-        Choose one of the five available scenes to explore different views and configurations of the 3D point cloud. Each scene offers unique perspectives on the data.
-      </p>
-      <div id="scene-container" class="buttons is-centered">
-        <button class="button is-primary is-selected" id="scene-050-btn" onclick="switchScene('050-2-1')">Scene 050</button>
-        <button class="button is-primary" id="scene-414-btn" onclick="switchScene('414-3-2')">Scene 414</button>
-        <button class="button is-primary" id="scene-565-btn" onclick="switchScene('565-4-5')">Scene 565</button>
-        <button class="button is-primary" id="scene-217-btn" onclick="switchScene('217-3-2')">Scene 217</button>
-        <button class="button is-primary" id="scene-426-btn" onclick="switchScene('426-2-0')">Scene 426</button>
-      </div>
-    </div>
-
-    <!-- Iframe for Visualization -->
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Visualization Viewer</h3>
-      <p class="has-text-centered">
-        Use the interactive viewer below to explore the selected 3D point cloud. Click and drag to navigate within the scene.
-        <br><strong>Currently viewing:</strong> <span id="current-view">RGB visualization of Scene 050</span>
-      </p>
-      <div id="iframe-container" class="iframe-container">
-        <iframe
-          id="point-cloud-viewer"
-          class="iframe"
-          style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 8px;"
-          src="https://xuweiyichen.github.io/test_viser/build/?playbackPath=https://uva-computer-vision-lab.github.io/sab3r/static/recordings/output_rgb_050-2-1.viser"
-        ></iframe>
-      </div>
+      </figure>
+      
+      <!-- DAVIS Results -->
+      <h4 class="title is-5" style="margin-top: 2rem;">Additional Results on DAVIS</h4>
+      <figure>
+        <img src="./static/images/davis_qualitative.jpg" alt="DAVIS Qualitative Results" style="border-radius: 8px;">
+        <figcaption>
+          <div class="content has-text-centered" style="margin-top: 0.5rem;">
+            <p><strong>Qualitative results on DAVIS dataset</strong> demonstrating transient-aware novel view synthesis.</p>
+          </div>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Citation</h2>
-    <pre><code>
-@article{chen2025sab3rsemanticaugmentedbackbone3d,
+  <div class="container is-max-desktop">
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Citation</h2>
+      <pre style="background-color: #e8e8e8; border-radius: 6px; padding: 1rem;"><code style="background: transparent;">@article{chen2025wildrayzer,
   title={WildRayZer: Self-supervised Large View Synthesis in Dynamic Environments}, 
-  author={Xuweiyi Chen and Tian Xia and Sihan Xu and Jianing Yang and Joyce Chai and Zezhou Cheng},
+  author={Xuweiyi Chen and Wentao Zhou and Zezhou Cheng},
   year={2025},
   eprint={2506.02112},
   archivePrefix={arXiv},
   primaryClass={cs.CV},
-  url={https://arxiv.org/abs/2506.02112}, 
-}
-  </code></pre>
+  url={}, 
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="box" style="background-color: #f5f5f5;">
+      <h2 class="title is-3 has-text-centered">Acknowledgements</h2>
+      <p class="has-text-justified">
+        The authors acknowledge the Adobe Research Gift, the University of Virginia Research Computing and Data Analytics Center, Advanced Micro Devices AI and HPC Cluster Program, Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS) program, and National Artificial Intelligence Research Resource (NAIRR) Pilot for computational resources, including the Anvil supercomputer (National Science Foundation award OAC 2005632) at Purdue University and the Delta and DeltaAI advanced computing resources (National Science Foundation award OAC 2005572). PI Chandra is supported in part by a CCI award supported by the Commonwealth of Virginia.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -460,12 +400,12 @@
 </script>
 
 <footer class="footer">
-  <div class="content has-text-centered">
+  <!-- <div class="content has-text-centered">
     <a href="https://www.easycounter.com/">
       <img src="https://www.easycounter.com/counter.php?xuweiyichen,sab3r"
       border="0" alt="HTML Counter"></a>
       <br><a href="https://www.easycounter.com/">Hit Counters</a>
-  </div>
+  </div> -->
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link" href="https://github.com/sled-group/multi-object-hallucination" class="external-link" disabled>
