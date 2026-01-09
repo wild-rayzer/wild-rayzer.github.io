@@ -24,8 +24,6 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <script src="./static/js/carousel_utils.js"></script>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <script src="script.js" type="text/javascript"></script>
   <!-- <div style="display:none">
     <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=kil1kuTLCIa-mi8KVDNEDX03zRkjha44PXIO66E5NBk&cl=ffffff&w=a"></script>
     <a href="https://clustrmaps.com/site/1c6f5"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=kil1kuTLCIa-mi8KVDNEDX03zRkjha44PXIO66E5NBk&cl=ffffff" /></a>
@@ -333,76 +331,11 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
-<script>
-  // Default type and scene
-  let currentType = 'rgb';
-  let currentScene = '050-2-1';
-
-  // Scene name mapping
-  const sceneNames = {
-    '050-2-1': 'Scene 050',
-    '414-3-2': 'Scene 414', 
-    '565-4-5': 'Scene 565',
-    '217-3-2': 'Scene 217',
-    '426-2-0': 'Scene 426'
-  };
-
-  // Function to update button states
-  function updateButtonStates() {
-    // Update type buttons
-    document.querySelectorAll('#type-container .button').forEach(btn => {
-      btn.classList.remove('is-selected');
-    });
-    document.getElementById(currentType + '-btn').classList.add('is-selected');
-    
-    // Update scene buttons  
-    document.querySelectorAll('#scene-container .button').forEach(btn => {
-      btn.classList.remove('is-selected');
-    });
-    const sceneBtn = document.querySelector(`[onclick="switchScene('${currentScene}')"]`);
-    if (sceneBtn) sceneBtn.classList.add('is-selected');
-    
-    // Update current view text
-    const typeText = currentType.toUpperCase();
-    const sceneName = sceneNames[currentScene] || 'Unknown Scene';
-    document.getElementById('current-view').textContent = `${typeText} visualization of ${sceneName}`;
-  }
-
-  // Function to switch visualization type
-  function switchType(type) {
-    currentType = type;
-    updateButtonStates();
-    updateIframe();
-  }
-
-  // Function to switch scene
-  function switchScene(scene) {
-    currentScene = scene;
-    updateButtonStates();
-    updateIframe();
-  }
-
-  // Update iframe source based on current type and scene
-  function updateIframe() {
-    const iframe = document.getElementById('point-cloud-viewer');
-    iframe.src = `https://xuweiyichen.github.io/test_viser/build/?playbackPath=https://uva-computer-vision-lab.github.io/sab3r/static/recordings/output_${currentType}_${currentScene}.viser`;
-  }
-
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    updateButtonStates();
-    
-    // Simulate clicking the RGB button to ensure proper initialization
-    setTimeout(() => {
-      switchType('rgb');
-    }, 500); // Small delay to ensure DOM is fully loaded
-  });
-</script>
 
 <footer class="footer">
   <!-- <div class="content has-text-centered">
     <a href="https://www.easycounter.com/">
-      <img src="https://www.easycounter.com/counter.php?xuweiyichen,sab3r"
+      <img src="https://www.easycounter.com/counter.php?xuweiyichen,wildrayzer"
       border="0" alt="HTML Counter"></a>
       <br><a href="https://www.easycounter.com/">Hit Counters</a>
   </div> -->
